@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On	
-	RewriteBase /~eb12037/nutri
+    RewriteEngine On
+	RewriteBase /~eb10141/sistema_nutricion
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
