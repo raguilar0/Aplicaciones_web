@@ -1,13 +1,4 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Acciones') ?></li>
-        <li><?= $this->Html->link(__('Editar Usuario'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Borrar Usuario'), ['action' => 'delete', $user->id], ['confirm' => __('¿Seguro que desea borrar a  {0}?', $user->name)]) ?> </li>
-        <li><?= $this->Html->link(__('Listar Usuarios'), ['action' => 'index']) ?> </li>
-          <li><?= $this->Html->link(__('Nuevo Usuario'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="users view large-9 medium-8 columns content">
+<div class="well">
     <h3><?= h($user->name)?></h3>
     <table class="vertical-table">
         <tr>

@@ -16,7 +16,7 @@
 /*
  * You can remove this if you are confident that your PHP version is sufficient.
  */
- 
+
 if (version_compare(PHP_VERSION, '5.5.9') < 0) {
     trigger_error('Your PHP version must be equal or higher than 5.5.9 to use CakePHP.', E_USER_ERROR);
 }
@@ -81,6 +81,9 @@ try {
 } catch (\Exception $e) {
     exit($e->getMessage() . "\n");
 }
+
+
+
 
 /*
  * Load an environment local configuration file.
@@ -222,3 +225,5 @@ Type::build('datetime')
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+Plugin::load('BootstrapUI');
