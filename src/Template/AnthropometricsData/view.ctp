@@ -1,15 +1,5 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Anthropometrics Data'), ['action' => 'edit', $anthropometricsData->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Anthropometrics Data'), ['action' => 'delete', $anthropometricsData->id], ['confirm' => __('Are you sure you want to delete # {0}?', $anthropometricsData->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Anthropometrics Data'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Anthropometrics Data'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="anthropometricsData view large-9 medium-8 columns content">
+
+<div class="well">
     <h3><?= $anthropometricsData->has('user') ? $this->Html->link($anthropometricsData->user->name.' '.$anthropometricsData->user->last_name_1.' '.$anthropometricsData->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $anthropometricsData->user->id]) : '' ?></h3>
     <table class="vertical-table">
         <tr>

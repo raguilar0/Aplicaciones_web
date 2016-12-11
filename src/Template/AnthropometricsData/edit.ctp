@@ -1,23 +1,12 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $anthropometricsData->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $anthropometricsData->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Anthropometrics Data'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="anthropometricsData form large-9 medium-8 columns content">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="page-header">
+      <h2>Editar medidas</h2>
+    </div>
     <?= $this->Form->create($anthropometricsData) ?>
     <fieldset>
-        <legend><?= __('Editar datos antropométricos') ?></legend>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->input('user_id', ['options' => $users,'label'=>'Usuario']);
             echo $this->Form->input('date', ['empty' => true,'label'=>'Fecha']);
             echo $this->Form->input('height',['label'=>'Talla']);
             echo $this->Form->input('weight',['label'=>'Peso']);
@@ -39,6 +28,6 @@
             echo $this->Form->input('fat_goal',['label'=>'Grasa meta']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Editar')) ?>
     <?= $this->Form->end() ?>
 </div>

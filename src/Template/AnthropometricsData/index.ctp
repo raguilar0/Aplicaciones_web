@@ -1,24 +1,20 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Anthropometrics Data'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="anthropometricsData index large-9 medium-8 columns content">
-    <h3><?= __('Datos antropométricos') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h2>Medidas</h2>
+    </div>
+    <div class="table-responsive">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('user_id',['label'=>'Nombre']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_id',['label'=>'Apellido']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('date',['label'=>'Fecha']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('height',['label'=>'Talla']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('weight',['label'=>'Peso']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('total_fat',['label'=>'Grasa total']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('blood_pressure',['label'=>'Presión']) ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th><?= $this->Paginator->sort('user_id',['label'=>'Nombre']) ?></th>
+                <th><?= $this->Paginator->sort('user_id',['label'=>'Apellido']) ?></th>
+                <th><?= $this->Paginator->sort('date',['label'=>'Fecha']) ?></th>
+                <th><?= $this->Paginator->sort('height',['label'=>'Talla']) ?></th>
+                <th><?= $this->Paginator->sort('weight',['label'=>'Peso']) ?></th>
+                <th><?= $this->Paginator->sort('total_fat',['label'=>'Grasa total']) ?></th>
+                <th><?= $this->Paginator->sort('blood_pressure',['label'=>'Presión']) ?></th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -32,10 +28,10 @@
                 <td><?= $this->Number->format($anthropometricsData->total_fat) ?></td>
                 <td><?= h($anthropometricsData->blood_pressure) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $anthropometricsData->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $anthropometricsData->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $anthropometricsData->id], ['confirm' => __('¿Seguro que desea borrar los datos {0}?', $anthropometricsData->id)]) ?>
-                </td>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $anthropometricsData->id], ['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $anthropometricsData->id],['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $anthropometricsData->id],['class'=>'btn btn-sm btn-danger'] ,['confirm' => __('¿Seguro que desea borrar a  {0}?', $anthropometricsData->name)]) ?>
+              </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -48,4 +44,5 @@
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+  </div>
 </div>
