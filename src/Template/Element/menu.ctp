@@ -48,6 +48,15 @@
                     <li><?=  $this->Html->link('Nueva cita', ['controller' => 'Appointments', 'action' => 'add']) ?></li>
                     <?php }?>
                 </ul>
+                <li  data-toggle="collapse" data-target="#antecedentes" class="collapsed">
+                  <a><i class="fa fa-paperclip fa-lg"></i>Antecedentes<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="antecedentes">
+                    <li><?=  $this->Html->link('Listar antecedentes', ['controller' => 'Backgrounds', 'action' => 'index']) ?></li>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
+                    <li><?=  $this->Html->link('Nuevos antecedentes', ['controller' => 'Backgrounds', 'action' => 'add']) ?></li>
+                    <?php }?>
+                </ul>
             </ul>
      </div>
 </div>

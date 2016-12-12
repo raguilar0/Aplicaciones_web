@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\BackgroundsTable;
+use App\Model\Table\LifeStyleTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\BackgroundsTable Test Case
+ * App\Model\Table\LifeStyleTable Test Case
  */
-class BackgroundsTableTest extends TestCase
+class LifeStyleTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\BackgroundsTable
+     * @var \App\Model\Table\LifeStyleTable
      */
-    public $Backgrounds;
+    public $LifeStyle;
 
     /**
      * Fixtures
@@ -24,11 +24,7 @@ class BackgroundsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.backgrounds',
-        'app.users',
-        'app.appointments',
-        'app.hours',
-        'app.anthropometrics_data'
+        'app.life_style'
     ];
 
     /**
@@ -39,8 +35,8 @@ class BackgroundsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Backgrounds') ? [] : ['className' => 'App\Model\Table\BackgroundsTable'];
-        $this->Backgrounds = TableRegistry::get('Backgrounds', $config);
+        $config = TableRegistry::exists('LifeStyle') ? [] : ['className' => 'App\Model\Table\LifeStyleTable'];
+        $this->LifeStyle = TableRegistry::get('LifeStyle', $config);
     }
 
     /**
@@ -50,7 +46,7 @@ class BackgroundsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Backgrounds);
+        unset($this->LifeStyle);
 
         parent::tearDown();
     }
@@ -71,16 +67,6 @@ class BackgroundsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

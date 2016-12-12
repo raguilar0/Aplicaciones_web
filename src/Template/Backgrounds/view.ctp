@@ -1,64 +1,61 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Background'), ['action' => 'edit', $background->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Background'), ['action' => 'delete', $background->id], ['confirm' => __('Are you sure you want to delete # {0}?', $background->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Backgrounds'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Background'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="backgrounds view large-9 medium-8 columns content">
-    <h3><?= h($background->id) ?></h3>
+<div class="well">
+    <h3><?= $background->has('user') ? $this->Html->link($background->user->name." ".$background->user->last_name_1." ".$background->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $background->user->id]) : '' ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $background->has('user') ? $this->Html->link($background->user->name, ['controller' => 'Users', 'action' => 'view', $background->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Heart Disease') ?></th>
-            <td><?= h($background->heart_disease) ?></td>
+            <th scope="row"><?= __('Enfermedades cardiacas') ?></th>
+            <td><?= h($background->disease_1) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('HTA') ?></th>
-            <td><?= h($background->HTA) ?></td>
+            <td><?= h($background->disease_2) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Diabetes') ?></th>
-            <td><?= h($background->diabetes) ?></td>
+            <td><?= h($background->disease_3) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Dyslipidemia') ?></th>
-            <td><?= h($background->dyslipidemia) ?></td>
+            <th scope="row"><?= __('Dislipidemia') ?></th>
+            <td><?= h($background->disease_4) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Allergy') ?></th>
-            <td><?= h($background->allergy) ?></td>
+            <th scope="row"><?= __('Alergias') ?></th>
+            <td><?= h($background->disease_5) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Ulcer') ?></th>
-            <td><?= h($background->ulcer) ?></td>
+            <th scope="row"><?= __('Úlceras') ?></th>
+            <td><?= h($background->disease_6) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Bone Problem') ?></th>
-            <td><?= h($background->bone_problem) ?></td>
+            <th scope="row"><?= __('Problemas óseos') ?></th>
+            <td><?= h($background->disease_7) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Gastritis') ?></th>
-            <td><?= h($background->gastritis) ?></td>
+            <td><?= h($background->disease_8) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Colitis') ?></th>
-            <td><?= h($background->colitis) ?></td>
+            <td><?= h($background->disease_9) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Stress') ?></th>
-            <td><?= h($background->stress) ?></td>
+            <th scope="row"><?= __('Estres') ?></th>
+            <td><?= h($background->disease_10) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($background->id) ?></td>
+            <th scope="row"><?= __('DM en la familia') ?></th>
+            <td><?= h($background->family_disease_1) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('HTA en la familia') ?></th>
+            <td><?= h($background->family_disease_2) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Dislipidemia en la familia') ?></th>
+            <td><?= h($background->family_disease_3) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Otras enfermedades en la familia') ?></th>
+            <td><?= h($background->family_disease_4) ?></td>
         </tr>
     </table>
 </div>

@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\BackgroundsTable;
+use App\Model\Table\FamilyBackgroundsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\BackgroundsTable Test Case
+ * App\Model\Table\FamilyBackgroundsTable Test Case
  */
-class BackgroundsTableTest extends TestCase
+class FamilyBackgroundsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\BackgroundsTable
+     * @var \App\Model\Table\FamilyBackgroundsTable
      */
-    public $Backgrounds;
+    public $FamilyBackgrounds;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class BackgroundsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.backgrounds',
+        'app.family_backgrounds',
         'app.users',
         'app.appointments',
         'app.hours',
@@ -39,8 +39,8 @@ class BackgroundsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Backgrounds') ? [] : ['className' => 'App\Model\Table\BackgroundsTable'];
-        $this->Backgrounds = TableRegistry::get('Backgrounds', $config);
+        $config = TableRegistry::exists('FamilyBackgrounds') ? [] : ['className' => 'App\Model\Table\FamilyBackgroundsTable'];
+        $this->FamilyBackgrounds = TableRegistry::get('FamilyBackgrounds', $config);
     }
 
     /**
@@ -50,7 +50,7 @@ class BackgroundsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Backgrounds);
+        unset($this->FamilyBackgrounds);
 
         parent::tearDown();
     }

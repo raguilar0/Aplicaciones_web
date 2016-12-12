@@ -8,7 +8,6 @@
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('user_id',['label'=>'Nombre']) ?></th>
-                <th><?= $this->Paginator->sort('user_id',['label'=>'Apellido']) ?></th>
                 <th><?= $this->Paginator->sort('date',['label'=>'Fecha']) ?></th>
                 <th><?= $this->Paginator->sort('height',['label'=>'Talla']) ?></th>
                 <th><?= $this->Paginator->sort('weight',['label'=>'Peso']) ?></th>
@@ -21,8 +20,7 @@
             <?php foreach ($anthropometricsData as $anthropometricsData): ?>
               <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id){?>
             <tr>
-                <td><?= $anthropometricsData->has('user') ? $this->Html->link($anthropometricsData->user->name, ['controller' => 'Users', 'action' => 'view', $anthropometricsData->user->id]) : '' ?></td>
-                <td><?= $anthropometricsData->user->last_name_1.' '.$anthropometricsData->user->last_name_2 ?></td>
+                <td><?= $anthropometricsData->has('user') ? $this->Html->link($anthropometricsData->user->name." ".$anthropometricsData->user->last_name_1." ".$anthropometricsData->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $anthropometricsData->user->id]) : '' ?></td>
                 <td><?= h($anthropometricsData->date) ?></td>
                 <td><?= $this->Number->format($anthropometricsData->height) ?></td>
                 <td><?= $this->Number->format($anthropometricsData->weight) ?></td>
@@ -30,11 +28,11 @@
                 <td><?= h($anthropometricsData->blood_pressure) ?></td>
                 <td>
                     <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id){?>
-                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $anthropometricsData->id], ['class'=>'btn btn-sm btn-info']) ?>
+                    <?= $this->Html->link(__(''), ['action' => 'view', $anthropometricsData->id], ['class'=>'glyphicon glyphicon-eye-open btn btn-sm btn-info']) ?>
                     <?php } ?>
                     <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
-                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $anthropometricsData->id],['class'=>'btn btn-sm btn-info']) ?>
-                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $anthropometricsData->id],['confirm' =>'¿Seguro que desea borrar estas medidas?','class'=>'btn btn-sm btn-danger'] ) ?>
+                    <?= $this->Html->link(__(''), ['action' => 'edit', $anthropometricsData->id],['class'=>'glyphicon glyphicon-pencil btn btn-sm btn-info']) ?>
+                    <?= $this->Form->postLink(__(''), ['action' => 'delete', $anthropometricsData->id],['confirm' =>'¿Seguro que desea borrar estas medidas?','class'=>'glyphicon glyphicon-trash btn btn-sm btn-danger'] ) ?>
                     <?php } ?>
               </td>
             </tr>

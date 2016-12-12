@@ -54,44 +54,61 @@ class BackgroundsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('heart_disease', 'create')
-            ->notEmpty('heart_disease');
+            ->requirePresence('disease_1', 'create')
+            ->notEmpty('disease_1');
 
         $validator
-            ->requirePresence('HTA', 'create')
-            ->notEmpty('HTA');
+            ->requirePresence('disease_2', 'create')
+            ->notEmpty('disease_2');
 
         $validator
-            ->requirePresence('diabetes', 'create')
-            ->notEmpty('diabetes');
+            ->requirePresence('disease_3', 'create')
+            ->notEmpty('disease_3');
 
         $validator
-            ->requirePresence('dyslipidemia', 'create')
-            ->notEmpty('dyslipidemia');
+            ->requirePresence('disease_4', 'create')
+            ->notEmpty('disease_4');
 
         $validator
-            ->requirePresence('allergy', 'create')
-            ->notEmpty('allergy');
+            ->requirePresence('disease_5', 'create')
+            ->notEmpty('disease_5');
 
         $validator
-            ->requirePresence('ulcer', 'create')
-            ->notEmpty('ulcer');
+            ->requirePresence('disease_6', 'create')
+            ->notEmpty('disease_6');
 
         $validator
-            ->requirePresence('bone_problem', 'create')
-            ->notEmpty('bone_problem');
+            ->requirePresence('disease_7', 'create')
+            ->notEmpty('disease_7');
 
         $validator
-            ->requirePresence('gastritis', 'create')
-            ->notEmpty('gastritis');
+            ->requirePresence('disease_8', 'create')
+            ->notEmpty('disease_8');
 
         $validator
-            ->requirePresence('colitis', 'create')
-            ->notEmpty('colitis');
+            ->requirePresence('disease_9', 'create')
+            ->notEmpty('disease_9');
 
         $validator
-            ->requirePresence('stress', 'create')
-            ->notEmpty('stress');
+            ->requirePresence('disease_10', 'create')
+            ->notEmpty('disease_10');
+
+        $validator
+            ->requirePresence('family_disease_1', 'create')
+            ->notEmpty('family_disease_1');
+
+        $validator
+            ->requirePresence('family_disease_2', 'create')
+            ->notEmpty('family_disease_2');
+
+        $validator
+            ->requirePresence('family_disease_3', 'create')
+            ->notEmpty('family_disease_3');
+
+        $validator
+            ->requirePresence('family_disease_4', 'create')
+            ->notEmpty('family_disease_1');
+
 
         return $validator;
     }

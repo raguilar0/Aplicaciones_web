@@ -33,6 +33,16 @@ class UsersTable extends Table
         $this->table('users');
         $this->displayField('name');
         $this->primaryKey('id');
+
+        $this->hasMany('Appointments', [
+                       'dependent' => true,
+                       'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('AnthropometricsData', [
+                       'dependent' => true,
+                       'cascadeCallbacks' => true,
+        ]);
     }
 
     /**

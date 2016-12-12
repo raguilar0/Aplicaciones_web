@@ -1,4 +1,4 @@
-<div class="row">
+  <div class="row">
     <div class="col-md-12 col-md-offset-1">
         <div class="page-header">
             <h2>Lista de citas</h2>
@@ -22,11 +22,11 @@
                     <td><?= $appointment->hour->name ?></td>
                     <td>
                       <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $appointment->user->id){?>
-                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
+                        <?= $this->Html->link(__(''), ['action' => 'view', $appointment->id],['class'=>'glyphicon glyphicon-eye-open btn btn-sm btn-info']) ?>
                         <?php } ?>
-                        <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
-                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
-                        <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $appointment->id], ['confirm' =>'¿¿Seguro que desea borrar esta cita?', 'class'=>'btn btn-sm btn-danger']) ?>
+                        <?php if( $this->request->session()->read('Auth.User.role') == "admin"){ ?>
+                        <?= $this->Html->link(__(''), ['action' => 'edit', $appointment->id],['class'=>'glyphicon glyphicon-pencil btn btn-sm btn-info']) ?>
+                        <?= $this->Form->postLink(__(''), ['action' => 'delete', $appointment->id], ['confirm' =>'¿Seguro que desea borrar esta cita?', 'class'=>'glyphicon glyphicon-trash btn btn-sm btn-danger']) ?>
                         <?php } ?>
                     </td>
                 </tr>

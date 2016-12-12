@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\BackgroundsController;
+use App\Controller\LifeStyleController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\BackgroundsController Test Case
+ * App\Controller\LifeStyleController Test Case
  */
-class BackgroundsControllerTest extends IntegrationTestCase
+class LifeStyleControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,11 +16,7 @@ class BackgroundsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.backgrounds',
-        'app.users',
-        'app.appointments',
-        'app.hours',
-        'app.anthropometrics_data'
+        'app.life_style'
     ];
 
     /**

@@ -8,16 +8,20 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $user_id
- * @property string $heart_disease
- * @property string $HTA
- * @property string $diabetes
- * @property string $dyslipidemia
- * @property string $allergy
- * @property string $ulcer
- * @property string $bone_problem
- * @property string $gastritis
- * @property string $colitis
- * @property string $stress
+ * @property string $disease_1
+ * @property string $disease_2
+ * @property string $disease_3
+ * @property string $disease_4
+ * @property string $disease_5
+ * @property string $disease_6
+ * @property string $disease_7
+ * @property string $disease_8
+ * @property string $disease_9
+ * @property string $disease_10
+ * @property string $family_disease_1
+ * @property string $family_disease_2
+ * @property string $family_disease_3
+ * @property string $family_disease_4
  *
  * @property \App\Model\Entity\User $user
  */

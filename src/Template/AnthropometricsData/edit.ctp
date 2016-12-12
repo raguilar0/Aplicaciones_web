@@ -28,6 +28,6 @@
             echo $this->Form->input('fat_goal',['label'=>'Grasa meta']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Editar')) ?>
+    <?= $this->Form->button('Editar',['class'=>'btn btn-sm btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>

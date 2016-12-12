@@ -55,11 +55,11 @@ class BackgroundsController extends AppController
         if ($this->request->is('post')) {
             $background = $this->Backgrounds->patchEntity($background, $this->request->data);
             if ($this->Backgrounds->save($background)) {
-                $this->Flash->success(__('The background has been saved.'));
+                $this->Flash->success(__('Los antecedentes han sido guardados.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The background could not be saved. Please, try again.'));
+                $this->Flash->error(__('Los antecedentes no pudieron ser guardados. Intente nuevamente.'));
             }
         }
         $users = $this->Backgrounds->Users->find('list', ['limit' => 200]);
@@ -82,11 +82,11 @@ class BackgroundsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $background = $this->Backgrounds->patchEntity($background, $this->request->data);
             if ($this->Backgrounds->save($background)) {
-                $this->Flash->success(__('The background has been saved.'));
+                $this->Flash->success(__('Los antecedentes han sido guardados.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The background could not be saved. Please, try again.'));
+                $this->Flash->error(__('Los antecedentes no pudieron ser guardados. Intente nuevamente.'));
             }
         }
         $users = $this->Backgrounds->Users->find('list', ['limit' => 200]);
@@ -106,9 +106,9 @@ class BackgroundsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $background = $this->Backgrounds->get($id);
         if ($this->Backgrounds->delete($background)) {
-            $this->Flash->success(__('The background has been deleted.'));
+            $this->Flash->success(__('Los antecedentes han sido borrados.'));
         } else {
-            $this->Flash->error(__('The background could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Los antecendentes no han sido borrados. Intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
