@@ -22,11 +22,11 @@
                     <td><?= $appointment->hour->name ?></td>
                     <td>
                       <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $appointment->user->id){?>
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
                         <?php } ?>
                         <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $appointment->id], ['confirm' =>'¿¿Seguro que desea borrar esta cita?', 'class'=>'btn btn-sm btn-danger']) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
+                        <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $appointment->id], ['confirm' =>'¿¿Seguro que desea borrar esta cita?', 'class'=>'btn btn-sm btn-danger']) ?>
                         <?php } ?>
                     </td>
                 </tr>
