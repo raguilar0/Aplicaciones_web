@@ -24,7 +24,9 @@ class AppointmentsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.appointments'
+        'app.appointments',
+        'app.users',
+        'app.hours'
     ];
 
     /**
@@ -67,6 +69,16 @@ class AppointmentsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
