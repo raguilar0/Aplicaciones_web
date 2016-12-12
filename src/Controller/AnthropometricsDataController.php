@@ -55,11 +55,11 @@ class AnthropometricsDataController extends AppController
         if ($this->request->is('post')) {
             $anthropometricsData = $this->AnthropometricsData->patchEntity($anthropometricsData, $this->request->data);
             if ($this->AnthropometricsData->save($anthropometricsData)) {
-                $this->Flash->success(__('The anthropometrics data has been saved.'));
+                $this->Flash->success(__('Las medidas han sido guardadas.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The anthropometrics data could not be saved. Please, try again.'));
+                $this->Flash->error(__('Las medidas no pudieron ser guardadas. Intente nuevamente.'));
             }
         }
         $users = $this->AnthropometricsData->Users->find('list', ['limit' => 200]);
@@ -82,11 +82,11 @@ class AnthropometricsDataController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $anthropometricsData = $this->AnthropometricsData->patchEntity($anthropometricsData, $this->request->data);
             if ($this->AnthropometricsData->save($anthropometricsData)) {
-                $this->Flash->success(__('The anthropometrics data has been saved.'));
+              $this->Flash->success(__('Las medidas han sido guardadas.'));
 
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The anthropometrics data could not be saved. Please, try again.'));
+              return $this->redirect(['action' => 'index']);
+          } else {
+              $this->Flash->error(__('Las medidas no pudieron ser guardadas. Intente nuevamente.'));
             }
         }
         $users = $this->AnthropometricsData->Users->find('list', ['limit' => 200]);
@@ -106,9 +106,9 @@ class AnthropometricsDataController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $anthropometricsData = $this->AnthropometricsData->get($id);
         if ($this->AnthropometricsData->delete($anthropometricsData)) {
-            $this->Flash->success(__('The anthropometrics data has been deleted.'));
+            $this->Flash->success(__('Las medidas han sido borradas.'));
         } else {
-            $this->Flash->error(__('The anthropometrics data could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Las medidas no pudieron ser borradas. Intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

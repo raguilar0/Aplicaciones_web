@@ -1,9 +1,8 @@
-
 <div class="well">
     <h3><?= $anthropometricsData->has('user') ? $this->Html->link($anthropometricsData->user->name.' '.$anthropometricsData->user->last_name_1.' '.$anthropometricsData->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $anthropometricsData->user->id]) : '' ?></h3>
-    <table class="vertical-table">
+    <table>
         <tr>
-            <th scope="row"><?= __('Fecha') ?></th>
+            <th><?= __('Fecha') ?></th>
             <td><?= h($anthropometricsData->date) ?></td>
         </tr>
         <tr>

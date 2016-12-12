@@ -19,6 +19,7 @@
         </thead>
         <tbody>
             <?php foreach ($anthropometricsData as $anthropometricsData): ?>
+              <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id){?>
             <tr>
                 <td><?= $anthropometricsData->has('user') ? $this->Html->link($anthropometricsData->user->name, ['controller' => 'Users', 'action' => 'view', $anthropometricsData->user->id]) : '' ?></td>
                 <td><?= $anthropometricsData->user->last_name_1.' '.$anthropometricsData->user->last_name_2 ?></td>
@@ -27,12 +28,17 @@
                 <td><?= $this->Number->format($anthropometricsData->weight) ?></td>
                 <td><?= $this->Number->format($anthropometricsData->total_fat) ?></td>
                 <td><?= h($anthropometricsData->blood_pressure) ?></td>
-                <td class="actions">
+                <td>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id){?>
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $anthropometricsData->id], ['class'=>'btn btn-sm btn-info']) ?>
+                    <?php } ?>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $anthropometricsData->id],['class'=>'btn btn-sm btn-info']) ?>
-                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $anthropometricsData->id],['class'=>'btn btn-sm btn-danger'] ,['confirm' => __('¿Seguro que desea borrar a  {0}?', $anthropometricsData->name)]) ?>
+                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $anthropometricsData->id],['confirm' =>'¿Seguro que desea borrar estas medidas?','class'=>'btn btn-sm btn-danger'] ) ?>
+                    <?php } ?>
               </td>
             </tr>
+            <?php } ?>
             <?php endforeach; ?>
         </tbody>
     </table>

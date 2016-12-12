@@ -20,7 +20,7 @@ class UsersController extends AppController
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
-        $this->Auth->allow('add', 'logout');
+        $this->Auth->allow('logout');
     }
 
     public function login()
@@ -31,7 +31,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->error(__('Usuario o contraseña incorrecta. Intente nuevamente'));
         }
     }
 
@@ -76,11 +76,11 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('El usuario ha sido guardado.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('El usuario no pudo ser guardado. Intente nuevamente.'));
             }
         }
         $this->set(compact('user'));
@@ -102,11 +102,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+              $this->Flash->success(__('El usuario ha sido guardado.'));
 
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+              return $this->redirect(['action' => 'index']);
+          } else {
+              $this->Flash->error(__('El usuario no pudo ser guardado. Intente nuevamente.'));
             }
         }
         $this->set(compact('user'));
@@ -125,9 +125,9 @@ class UsersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('El usuario ha sido borrado.'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El usuario no pudo ser borrado. Intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
