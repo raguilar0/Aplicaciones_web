@@ -17,6 +17,7 @@
         </thead>
         <tbody>
             <?php foreach ($users as $user): ?>
+            <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $user->id){?>
             <tr>
                 <td><?= h($user->name) ?></td>
                 <td><?= h($user->last_name_1) ?></td>
@@ -24,11 +25,16 @@
                 <td><?= h($user->e_mail) ?></td>
                 <td><?= h($user->address) ?></td>
                 <td>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $user->id){?>
                     <?= $this->Html->link(__('Ver'), ['action' => 'view', $user->id], ['class'=>'btn btn-sm btn-info']) ?>
+                    <?php } ?>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $user->id],['class'=>'btn btn-sm btn-info']) ?>
-                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $user->id],['class'=>'btn btn-sm btn-danger'] ,['confirm' => __('¿Seguro que desea borrar a  {0}?', $user->name)]) ?>
+                    <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $user->id],['confirm' =>'¿Seguro que desea borrar este usuario ?', 'class'=>'btn btn-sm btn-danger']) ?>
+                    <?php } ?>
                 </td>
             </tr>
+            <?php } ?>
             <?php endforeach; ?>
         </tbody>
       </table>

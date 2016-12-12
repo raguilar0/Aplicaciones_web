@@ -1,44 +1,42 @@
-<div class="orbit-container">
-  <ul data-orbit class="example-orbit orbit-slides-container">
-    <li>
-        <img src="webroot/img/fondo.jpg" alt="slide 1" />
-        <div class="orbit-caption">
-        Caption One.
-      </div>
-    </li>
-    <li>
-      <img src="" alt="slide 1" />
-      <div class="orbit-caption">
-        Caption Two.
-      </div>
-    </li>
-    <li>
-      <img src="" alt="slide 1" />
-      <div class="orbit-caption">
-        Caption Three.
-      </div>
-    </li>
-  </ul>
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
-  <!-- Navigation Arrows -->
-  <a href="#" class="orbit-prev">Prev <span></span></a>
-  <a href="#" class="orbit-next">Next <span></span></a>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
 
-  <!-- Slide Numbers -->
-  <div class="orbit-slide-number">
-    <span>1</span> of <span>3</span>
-  </div>
-
-  <!-- Timer and Play/Pause Button -->
-  <div class="orbit-timer">
-    <span></span>
-    <div class="orbit-progress"></div>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>¿Sabías qué...?</h1>
+            <h3>Dato interesante....</h3>
+        </hgroup>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>¿Sabías qué...?</h1>
+            <h3>Dato interesante....</h3>
+        </hgroup>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">
+        <hgroup>
+            <h1>¿Sabías qué...?</h1>
+            <h3>Dato interesante....</h3>ñ
+        </hgroup>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- Bullets -->
-<ol class="orbit-bullets">
-  <li data-orbit-slide-number="1"></li>
-  <li data-orbit-slide-number="2"></li>
-  <li data-orbit-slide-number="3"></li>
-</ol>
