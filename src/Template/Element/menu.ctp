@@ -22,7 +22,7 @@
         <div class="menu-list">
             <ul id="menu-content" class="menu-content collapse out">
                 <li  data-toggle="collapse" data-target="#usuarios" class="collapsed">
-                  <a><i class="fa fa-gift fa-lg"></i>Usuarios<span class="arrow"></span></a>
+                  <a><i class="fa fa-users fa-lg"></i>Usuarios<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="usuarios">
                     <li><?=  $this->Html->link('Listar usuarios', ['controller' => 'Users', 'action' => 'index']) ?></li>
@@ -31,12 +31,21 @@
                     <?php }?>
                 </ul>
                 <li  data-toggle="collapse" data-target="#medidas" class="collapsed">
-                  <a><i class="fa fa-gift fa-lg"></i>Medidas<span class="arrow"></span></a>
+                  <a><i class="fa fa-book fa-lg"></i>Medidas<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="medidas">
                     <li><?=  $this->Html->link('Listar medidas', ['controller' => 'AnthropometricsData', 'action' => 'index']) ?></li>
                     <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
                     <li><?=  $this->Html->link('Nuevas medidas', ['controller' => 'AnthropometricsData', 'action' => 'add']) ?></li>
+                    <?php }?>
+                </ul>
+                <li  data-toggle="collapse" data-target="#citas" class="collapsed">
+                  <a><i class="fa fa-calendar fa-lg"></i>Citas<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="citas">
+                    <li><?=  $this->Html->link('Listar citas', ['controller' => 'Appointments', 'action' => 'index']) ?></li>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
+                    <li><?=  $this->Html->link('Nueva cita', ['controller' => 'Appointments', 'action' => 'add']) ?></li>
                     <?php }?>
                 </ul>
             </ul>

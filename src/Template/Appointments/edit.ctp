@@ -11,7 +11,7 @@
               echo $this->Form->input('hour_id', ['options' => $hours,'label'=>'Hora']);
           ?>
       </fieldset>
-      <?= $this->Form->button(__('Guardar')) ?>
+      <?= $this->Form->button('Editar',['class'=>'btn btn-sm btn-primary']) ?>
       <?= $this->Form->end() ?>
   </div>
 </div>

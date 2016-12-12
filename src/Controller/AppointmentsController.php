@@ -55,11 +55,11 @@ class AppointmentsController extends AppController
         if ($this->request->is('post')) {
             $appointment = $this->Appointments->patchEntity($appointment, $this->request->data);
             if ($this->Appointments->save($appointment)) {
-                $this->Flash->success(__('The appointment has been saved.'));
+                $this->Flash->success(__('La cita ha sido guardada.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The appointment could not be saved. Please, try again.'));
+                $this->Flash->error(__('La cita no pudo ser guardada. Intente nuevamente.'));
             }
         }
         $users = $this->Appointments->Users->find('list', ['limit' => 200]);
@@ -83,11 +83,11 @@ class AppointmentsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $appointment = $this->Appointments->patchEntity($appointment, $this->request->data);
             if ($this->Appointments->save($appointment)) {
-                $this->Flash->success(__('The appointment has been saved.'));
+                $this->Flash->success(__('La cita ha sido guardada.'));
 
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The appointment could not be saved. Please, try again.'));
+                $this->Flash->error(__('La cita no pudo ser guardada. Intente nuevamente.'));
             }
         }
         $users = $this->Appointments->Users->find('list', ['limit' => 200]);
@@ -108,9 +108,9 @@ class AppointmentsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $appointment = $this->Appointments->get($id);
         if ($this->Appointments->delete($appointment)) {
-            $this->Flash->success(__('The appointment has been deleted.'));
+            $this->Flash->success(__('La cita ha sido borrada.'));
         } else {
-            $this->Flash->error(__('The appointment could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La cita no puso ser borrada. Intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

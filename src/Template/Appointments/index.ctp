@@ -15,24 +15,30 @@
           </thead>
           <tbody>
               <?php foreach ($appointments as $appointment): ?>
-              <tr>
-                  <td><?= h($appointment->date) ?></td>
-                  <td><?= $appointment->has('user') ? $this->Html->link($appointment->user->name." ".$appointment->user->last_name_1." ".$appointment->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $appointment->user->id]) : '' ?></td>
-                  <td><?= $appointment->hour->name ?></td>
-                  <td class="actions">
-                      <?= $this->Html->link(__('View'), ['action' => 'view', $appointment->id]) ?>
-                      <?= $this->Html->link(__('Edit'), ['action' => 'edit', $appointment->id]) ?>
-                      <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $appointment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $appointment->id)]) ?>
-                  </td>
-              </tr>
+                  <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $appointment->user->id){?>
+                <tr>
+                    <td><?= h($appointment->date) ?></td>
+                    <td><?= $appointment->has('user') ? $this->Html->link($appointment->user->name." ".$appointment->user->last_name_1." ".$appointment->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $appointment->user->id]) : '' ?></td>
+                    <td><?= $appointment->hour->name ?></td>
+                    <td>
+                      <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $appointment->user->id){?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
+                        <?php } ?>
+                        <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $appointment->id],['class'=>'btn btn-sm btn-info']) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $appointment->id], ['confirm' =>'¿¿Seguro que desea borrar esta cita?', 'class'=>'btn btn-sm btn-danger']) ?>
+                        <?php } ?>
+                    </td>
+                </tr>
+              <?php } ?>
               <?php endforeach; ?>
           </tbody>
       </table>
       <div class="paginator">
           <ul class="pagination">
-              <?= $this->Paginator->prev('< ' . __('previous')) ?>
+              <?= $this->Paginator->prev('< ' . __('anterior')) ?>
               <?= $this->Paginator->numbers() ?>
-              <?= $this->Paginator->next(__('next') . ' >') ?>
+              <?= $this->Paginator->next(__('siguiente') . ' >') ?>
           </ul>
           <p><?= $this->Paginator->counter() ?></p>
       </div>
