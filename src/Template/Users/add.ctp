@@ -21,7 +21,7 @@
                 echo $this->Form->input('e_mail',['label'=>'Correo electrónico']);
                 echo $this->Form->input('address',['label'=>'Dirección']);
                 echo $this->Form->input('start_date',['label'=>'Fecha de inicio']);
-                echo $this->Form->input('birth_date',['label'=>'Fecha de nacimiento']);
+                echo $this->Form->input('birth_date',['label'=>'Fecha de nacimiento','minYear' => date('Y') - 100, 'maxYear' => date('Y')]);
             ?>
         </fieldset>
         <?= $this->Form->button('Agregar',['class'=>'btn btn-sm btn-primary']) ?>
