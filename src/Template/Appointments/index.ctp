@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12 col-md-offset-1">
+    <div class="col-md-12">
         <div class="page-header">
             <h2>Lista de citas</h2>
         </div>

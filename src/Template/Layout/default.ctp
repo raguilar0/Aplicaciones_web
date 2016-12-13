@@ -26,8 +26,8 @@ $cakeDescription = 'Nutrición y Balance Físico';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['bootstrap.min','font-awesome.min','style']) ?>
-    <?= $this->Html->script(['jquery-3.1.1.min.js','bootstrap.min.js']) ?>
+    <?= $this->Html->css(['bootstrap','font-awesome.min','style']) ?>
+    <?= $this->Html->script(['jquery-3.1.1','bootstrap']) ?>
 
 
     <?= $this->fetch('meta') ?>
