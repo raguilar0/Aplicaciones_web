@@ -30,15 +30,6 @@
                     <li><?=  $this->Html->link('Nuevo usuario', ['controller' => 'Users', 'action' => 'add']) ?></li>
                     <?php }?>
                 </ul>
-                <li  data-toggle="collapse" data-target="#medidas" class="collapsed">
-                  <a><i class="fa fa-book fa-lg"></i>Medidas<span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="medidas">
-                    <li><?=  $this->Html->link('Listar medidas', ['controller' => 'AnthropometricsData', 'action' => 'index']) ?></li>
-                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
-                    <li><?=  $this->Html->link('Nuevas medidas', ['controller' => 'AnthropometricsData', 'action' => 'add']) ?></li>
-                    <?php }?>
-                </ul>
                 <li  data-toggle="collapse" data-target="#antecedentes" class="collapsed">
                   <a><i class="fa fa-paperclip fa-lg"></i>Antecedentes<span class="arrow"></span></a>
                 </li>
@@ -50,12 +41,32 @@
                 </ul><li  data-toggle="collapse" data-target="#estilo" class="collapsed">
                   <a><i class="fa fa-heart fa-lg"></i>Estilo de vida<span class="arrow"></span></a>
                 </li>
+                <li  data-toggle="collapse" data-target="#medidas" class="collapsed">
+                  <a><i class="fa fa-book fa-lg"></i>Medidas<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="medidas">
+                    <li><?=  $this->Html->link('Listar medidas', ['controller' => 'AnthropometricsData', 'action' => 'index']) ?></li>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
+                    <li><?=  $this->Html->link('Nuevas medidas', ['controller' => 'AnthropometricsData', 'action' => 'add']) ?></li>
+                    <?php }?>
+                </ul>
                 <ul class="sub-menu collapse" id="estilo">
                     <li><?=  $this->Html->link('Listar Estilos de vida', ['controller' => 'Lifestyles', 'action' => 'index']) ?></li>
                     <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
                     <li><?=  $this->Html->link('Nuevo estilo de vida', ['controller' => 'Lifestyles', 'action' => 'add']) ?></li>
                     <?php }?>
                 </ul>
+                <li  data-toggle="collapse" data-target="#planes" class="collapsed">
+                  <a><i class="fa fa-spoon fa-lg"></i>Planes<span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="planes">
+                    <li><?=  $this->Html->link('Listar planes', ['controller' => 'Plans', 'action' => 'index']) ?></li>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
+                    <li><?=  $this->Html->link('Nuevo plan', ['controller' => 'Plans', 'action' => 'add']) ?></li>
+                    <?php }?>
+                </ul><li  data-toggle="collapse" data-target="#estilo" class="collapsed">
+                  <a><i class="fa fa-heart fa-lg"></i>Estilo de vida<span class="arrow"></span></a>
+                </li>
                 <li  data-toggle="collapse" data-target="#citas" class="collapsed">
                   <a><i class="fa fa-calendar fa-lg"></i>Citas<span class="arrow"></span></a>
                 </li>
