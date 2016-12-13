@@ -13,14 +13,20 @@
         </thead>
         <tbody>
             <?php foreach ($backgrounds as $background): ?>
+            <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $background->user->id){?>
             <tr>
                 <td><?= $background->has('user') ? $this->Html->link($background->user->name." ".$background->user->last_name_1." ".$background->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $background->user->id]) : '' ?></td>
-                <td class="actions">
+                <td>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $background->user->id){?>
                     <?= $this->Html->link(__(''), ['action' => 'view', $background->id],['class'=>'glyphicon glyphicon-eye-open btn btn-sm btn-info']) ?>
-                    <?= $this->Html->link(__(''), ['action' => 'edit', $background->id],['class'=>'glyphicon glyphicon-pencil btn btn-sm btn-info']) ?>
-                    <?= $this->Form->postLink(__(''), ['action' => 'delete', $background->id], ['confirm' => '¿Seguro que desea borrar estos antecedentes?', 'class'=>'glyphicon glyphicon-trash btn btn-sm btn-danger']) ?>
+                    <?php } ?>
+                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){ ?>
+                      <?= $this->Html->link(__(''), ['action' => 'edit', $background->id],['class'=>'glyphicon glyphicon-pencil btn btn-sm btn-info']) ?>
+                      <?= $this->Form->postLink(__(''), ['action' => 'delete', $background->id], ['confirm' => '¿Seguro que desea borrar estos antecedentes?', 'class'=>'glyphicon glyphicon-trash btn btn-sm btn-danger']) ?>
+                    <?php } ?>
                 </td>
             </tr>
+            <?php } ?>
             <?php endforeach; ?>
         </tbody>
     </table>

@@ -1,4 +1,5 @@
 <div class="well">
+  <?php if($this->request->session()->read('Auth.User.role') == 'admin' || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id ){ ?>
     <h3><?= $background->has('user') ? $this->Html->link($background->user->name." ".$background->user->last_name_1." ".$background->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $background->user->id]) : '' ?></h3>
     <table class="vertical-table">
         <tr>
@@ -58,4 +59,5 @@
             <td><?= h($background->family_disease_4) ?></td>
         </tr>
     </table>
+    <?php } ?>
 </div>

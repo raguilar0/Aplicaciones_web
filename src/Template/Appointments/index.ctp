@@ -21,7 +21,7 @@
                     <td><?= $appointment->has('user') ? $this->Html->link($appointment->user->name." ".$appointment->user->last_name_1." ".$appointment->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $appointment->user->id]) : '' ?></td>
                     <td><?= $appointment->hour->name ?></td>
                     <td>
-                      <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $appointment->user->id){?>
+                        <?php if( $this->request->session()->read('Auth.User.role') == "admin" || $this->request->session()->read('Auth.User.id') == $appointment->user->id){?>
                         <?= $this->Html->link(__(''), ['action' => 'view', $appointment->id],['class'=>'glyphicon glyphicon-eye-open btn btn-sm btn-info']) ?>
                         <?php } ?>
                         <?php if( $this->request->session()->read('Auth.User.role') == "admin"){ ?>

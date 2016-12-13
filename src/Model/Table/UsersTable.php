@@ -43,6 +43,16 @@ class UsersTable extends Table
                        'dependent' => true,
                        'cascadeCallbacks' => true,
         ]);
+
+        $this->hasMany('Lifestyles', [
+                       'dependent' => true,
+                       'cascadeCallbacks' => true,
+        ]);
+
+        $this->hasMany('Backgrounds', [
+                       'dependent' => true,
+                       'cascadeCallbacks' => true,
+        ]);
     }
 
     /**

@@ -1,4 +1,5 @@
 <div class="row">
+  <?php if($this->request->session()->read('Auth.User.role') == 'admin'){ ?>
   <div class="col-md-6 col-md-offset-3">
     <div class="page-header">
       <h2>Editar usuario</h2>
@@ -25,4 +26,5 @@
     </fieldset>
     <?= $this->Form->button('Editar',['class'=>'btn btn-sm btn-primary']) ?>
     <?= $this->Form->end() ?>
+    <?php } ?>
 </div>

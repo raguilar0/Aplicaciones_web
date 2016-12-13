@@ -1,4 +1,5 @@
 <div class="row">
+  <?php if($this->request->session()->read('Auth.User.role') == 'admin'){ ?>
     <div class="col-md-6 col-md-offset-3">
         <div class="page-header">
             <h2>Agregar Usuario</h2>
@@ -26,4 +27,5 @@
         <?= $this->Form->button('Agregar',['class'=>'btn btn-sm btn-primary']) ?>
         <?= $this->Form->end() ?>
     </div>
+    <?php } ?>
 </div>

@@ -1,4 +1,5 @@
 <div class="well">
+  <?php if($this->request->session()->read('Auth.User.role') == 'admin' || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id ){ ?>
     <h3><?= $anthropometricsData->has('user') ? $this->Html->link($anthropometricsData->user->name.' '.$anthropometricsData->user->last_name_1.' '.$anthropometricsData->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $anthropometricsData->user->id]) : '' ?></h3>
     <table>
         <tr>
@@ -78,4 +79,5 @@
             <td><?= $this->Number->format($anthropometricsData->fat_goal) ?></td>
         </tr>
     </table>
+    <?php } ?>
 </div>
