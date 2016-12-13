@@ -57,7 +57,7 @@ class AnthropometricsDataController extends AppController
             if ($this->AnthropometricsData->save($anthropometricsData)) {
                 $this->Flash->success(__('Las medidas han sido guardadas.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Plans','action' => 'add']);  
             } else {
                 $this->Flash->error(__('Las medidas no pudieron ser guardadas. Intente nuevamente.'));
             }
@@ -84,7 +84,7 @@ class AnthropometricsDataController extends AppController
             if ($this->AnthropometricsData->save($anthropometricsData)) {
               $this->Flash->success(__('Las medidas han sido guardadas.'));
 
-              return $this->redirect(['action' => 'index']);//falta el redirect a planes
+              return $this->redirect(['action' => 'index']);
           } else {
               $this->Flash->error(__('Las medidas no pudieron ser guardadas. Intente nuevamente.'));
             }

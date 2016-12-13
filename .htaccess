@@ -6,8 +6,8 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteBase /~eb10141/sistema_nutricion
-    #RewriteBase /~eb12037/nutri
+    #RewriteBase /~eb10141/sistema_nutricion
+    RewriteBase /~eb12037/nutri
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
 </IfModule>
