@@ -6,6 +6,7 @@
         <?=  $this->Html->link(__(''), ['controller'=>'Backgrounds','action' => 'edit', $background->id], ['title'=>'Editar antecedentes','class'=>'glyphicon glyphicon-pencil btn btn-sm btn-warning']) ?>
         <?=  $this->Html->link(__(''), ['controller'=>'Lifestyles','action' => 'view', $background->user->id], ['title'=>'Ver Estilo de vida','class'=>'glyphicon glyphicon-heart btn btn-sm btn-info']) ?>
         <?=  $this->Html->link(__(''), ['controller'=>'AnthropometricsData','action' => 'view', $background->user->id], ['title'=>'Ver medidas','class'=>'glyphicon glyphicon-book btn btn-sm btn-info']) ?>
+        <?=  $this->Html->link(__(''), ['controller'=>'Plans','action' => 'view', $background->user->id], ['title'=>'Ver plan','class'=>'glyphicon glyphicon-glass btn btn-sm btn-info']) ?>
        <?php }
           elseif($this->request->session()->read('Auth.User.role') == 'user'){ ?>
             <?=  $this->Html->link(__(''), ['controller'=>'Users','action' => 'view', $background->user->id], ['title'=>'Ver perfil','class'=>'glyphicon glyphicon-user btn btn-sm btn-info']) ?>

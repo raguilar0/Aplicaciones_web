@@ -36,12 +36,16 @@ class LifestylesController extends AppController
      */
     public function view($id = null)
     {
-        $lifestyle = $this->Lifestyles->get($id, [
-            'contain' => ['Users']
-        ]);
-
-        $this->set('lifestyle', $lifestyle);
-        $this->set('_serialize', ['lifestyle']);
+        $lifestyle = $this->Lifestyles->find()
+      ->hydrate(false)
+      ->andWhere(['Lifestyles.user_id'=>$id]);
+      $lifestyle = $lifestyle->toArray();
+      $id = $lifestyle[0]['id'];
+      $lifestyle = $this->Lifestyles->get($id,[
+        'contain'=>['Users']
+      ]);
+      $this->set('lifestyle', $lifestyle);
+      $this->set('_serialize', ['lifestyle']);
     }
 
     /**

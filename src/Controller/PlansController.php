@@ -37,12 +37,16 @@ class PlansController extends AppController
      */
     public function view($id = null)
     {
-        $plan = $this->Plans->get($id, [
-            'contain' => ['Users', 'DairyProducts', 'Vegetables', 'Fruits', 'Flours', 'Meats', 'Fats', 'Explanations']
-        ]);
-
-        $this->set('plan', $plan);
-        $this->set('_serialize', ['plan']);
+      $plan = $this->Plans->find()
+      ->hydrate(false)
+      ->andWhere(['Plans.user_id'=>$id]);
+      $plan = $plan->toArray();
+      $id = $plan[0]['id'];
+      $plan = $this->Plans->get($id, [
+          'contain' => ['Users', 'DairyProducts', 'Vegetables', 'Fruits', 'Flours', 'Meats', 'Fats', 'Explanations']
+      ]);
+      $this->set('plan', $plan);
+      $this->set('_serialize', ['plan']);
     }
 
     /**
@@ -84,11 +88,11 @@ class PlansController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $plan = $this->Plans->patchEntity($plan, $this->request->data);
             if ($this->Plans->save($plan)) {
-                $this->Flash->success(__('The plan has been saved.'));
+              $this->Flash->success(__('El plan ha sido guardado.'));
 
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The plan could not be saved. Please, try again.'));
+              return $this->redirect(['action' => 'index']);
+          } else {
+              $this->Flash->error(__('El plan no pudo ser guardado. Intente nuevamente.'));
             }
         }
         $users = $this->Plans->Users->find('list', ['limit' => 200]);
@@ -115,9 +119,9 @@ class PlansController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $plan = $this->Plans->get($id);
         if ($this->Plans->delete($plan)) {
-            $this->Flash->success(__('The plan has been deleted.'));
+            $this->Flash->success(__('El plan ha sido borrado.'));
         } else {
-            $this->Flash->error(__('The plan could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El plan no pudo ser borrado. Intente nuevamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
