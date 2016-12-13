@@ -17,7 +17,7 @@ class PlansController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    /*public function index()
     {
         $this->paginate = [
             'contain' => ['Users', 'DairyProducts', 'Vegetables', 'Fruits', 'Flours', 'Meats', 'Fats', 'Explanations']
@@ -26,7 +26,7 @@ class PlansController extends AppController
 
         $this->set(compact('plans'));
         $this->set('_serialize', ['plans']);
-    }
+    }*/
 
     /**
      * View method

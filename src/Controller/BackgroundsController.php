@@ -16,7 +16,7 @@ class BackgroundsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    /*public function index()
     {
         $this->paginate = [
             'contain' => ['Users']
@@ -25,7 +25,7 @@ class BackgroundsController extends AppController
 
         $this->set(compact('backgrounds'));
         $this->set('_serialize', ['backgrounds']);
-    }
+    }*/
 
     /**
      * View method

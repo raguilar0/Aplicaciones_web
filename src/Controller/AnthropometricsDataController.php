@@ -16,7 +16,7 @@ class AnthropometricsDataController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    /*public function index()
     {
         $this->paginate = [
             'contain' => ['Users']
@@ -25,7 +25,7 @@ class AnthropometricsDataController extends AppController
 
         $this->set(compact('anthropometricsData'));
         $this->set('_serialize', ['anthropometricsData']);
-    }
+    }*/
 
     /**
      * View method

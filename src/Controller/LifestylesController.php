@@ -16,7 +16,7 @@ class LifestylesController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    /*public function index()
     {
         $this->paginate = [
             'contain' => ['Users']
@@ -25,7 +25,7 @@ class LifestylesController extends AppController
 
         $this->set(compact('lifestyles'));
         $this->set('_serialize', ['lifestyles']);
-    }
+    }*/
 
     /**
      * View method
