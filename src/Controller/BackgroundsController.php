@@ -57,7 +57,7 @@ class BackgroundsController extends AppController
             if ($this->Backgrounds->save($background)) {
                 $this->Flash->success(__('Los antecedentes han sido guardados.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Lifestyles','action' => 'add']);
             } else {
                 $this->Flash->error(__('Los antecedentes no pudieron ser guardados. Intente nuevamente.'));
             }

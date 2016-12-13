@@ -57,7 +57,7 @@ class LifestylesController extends AppController
             if ($this->Lifestyles->save($lifestyle)) {
                 $this->Flash->success(__('El estilo de vida ha sido guardado.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'AnthropometricsData','action' => 'add']);
             } else {
                 $this->Flash->error(__('El estilo de vida no pudo ser guardado. Intente nuevamente.'));
             }
