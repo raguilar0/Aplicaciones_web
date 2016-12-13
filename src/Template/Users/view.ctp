@@ -56,7 +56,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Acciones') ?></th>
-            <td><?= $this->Html->link(__(''), ['controller'=>'Backgrounds','action' => 'index', $user->id], ['title'=>'Ver antecedentes','class'=>'glyphicon glyphicon-paperclip btn btn-sm btn-info']) ?>
+            <td><?= $this->Html->link(__(''), ['controller'=>'Backgrounds','action' => 'view', $user->id], ['title'=>'Ver antecedentes','class'=>'glyphicon glyphicon-paperclip btn btn-sm btn-info']) ?>
             <?= $this->Html->link(__(''), ['controller'=>'Lifestyles','action' => 'view', $user->id], ['title'=>'Ver Estilo de vida','class'=>'glyphicon glyphicon-heart btn btn-sm btn-info']) ?>
             <?= $this->Html->link(__(''), ['controller'=>'AnthropometricsData','action' => 'view', $user->id], ['title'=>'Ver medidas','class'=>'glyphicon glyphicon-book btn btn-sm btn-info']) ?></td>
 

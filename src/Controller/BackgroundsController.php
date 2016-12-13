@@ -36,12 +36,16 @@ class BackgroundsController extends AppController
      */
     public function view($id = null)
     {
-        $background = $this->Backgrounds->get($id, [
-            'contain' => ['Users']
-        ]);
-
-        $this->set('background', $background);
-        $this->set('_serialize', ['background']);
+      $background = $this->Backgrounds->find()
+      ->hydrate(false)
+      ->andWhere(['Backgrounds.user_id'=>$id]);
+      $background = $background->toArray();
+      $id = $background[0]['id'];
+      $background = $this->Backgrounds->get($id,[
+        'contain'=>['Users']
+      ]);
+      $this->set('background', $background);
+      $this->set('_serialize', ['background']);
     }
 
     /**

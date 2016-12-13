@@ -36,12 +36,16 @@ class AnthropometricsDataController extends AppController
      */
     public function view($id = null)
     {
-        $anthropometricsData = $this->AnthropometricsData->get($id, [
-            'contain' => ['Users']
-        ]);
-
-        $this->set('anthropometricsData', $anthropometricsData);
-        $this->set('_serialize', ['anthropometricsData']);
+      $anthropometricsData = $this->AnthropometricsData->find()
+      ->hydrate(false)
+      ->andWhere(['AnthropometricsData.user_id'=>$id]);
+      $anthropometricsData = $anthropometricsData->toArray();
+      $id = $anthropometricsData[0]['id'];
+      $anthropometricsData = $this->AnthropometricsData->get($id,[
+        'contain'=>['Users']
+      ]);
+      $this->set('anthropometricsData', $anthropometricsData);
+      $this->set('_serialize', ['anthropometricsData']);
     }
 
     /**
@@ -57,7 +61,7 @@ class AnthropometricsDataController extends AppController
             if ($this->AnthropometricsData->save($anthropometricsData)) {
                 $this->Flash->success(__('Las medidas han sido guardadas.'));
 
-                return $this->redirect(['controller'=>'Plans','action' => 'add']);  
+                return $this->redirect(['controller'=>'Plans','action' => 'add']);
             } else {
                 $this->Flash->error(__('Las medidas no pudieron ser guardadas. Intente nuevamente.'));
             }
