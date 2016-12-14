@@ -10,10 +10,10 @@
                 echo $this->Form->input('name',['label'=>'Nombre']);
                 echo $this->Form->input('last_name_1',['label'=>'Primer apelido']);
                 echo $this->Form->input('last_name_2',['label'=>'Segundo apellido']);
-                echo $this->Form->input('role',['label'=>'Rol']);
+                echo $this->Form->input('role',['options' => $role,'label'=>'Rol']);
                 echo $this->Form->input('username',['label'=>'Nombre de usuario']);
                 echo $this->Form->input('password', ['label'=>'Contraseña']);
-                echo $this->Form->input('state',['label'=>'Estado']);
+                echo $this->Form->input('state',['options' => $state,'label'=>'Estado']);
                 echo $this->Form->input('age',['label'=>'Edad']);
                 echo $this->Form->input('phone',['label'=>'Teléfono']);
                 echo $this->Form->input('gender',['label'=>'Sexo']);

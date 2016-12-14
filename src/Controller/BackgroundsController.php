@@ -53,15 +53,16 @@ class BackgroundsController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id_user = null)
     {
         $background = $this->Backgrounds->newEntity();
         if ($this->request->is('post')) {
             $background = $this->Backgrounds->patchEntity($background, $this->request->data);
+            $background['user_id'] = $id_user;
             if ($this->Backgrounds->save($background)) {
                 $this->Flash->success(__('Los antecedentes han sido guardados.'));
 
-                return $this->redirect(['controller'=>'Lifestyles','action' => 'add']);
+                return $this->redirect(['controller'=>'Lifestyles','action' => 'add',$background['user_id']]);
             } else {
                 $this->Flash->error(__('Los antecedentes no pudieron ser guardados. Intente nuevamente.'));
             }

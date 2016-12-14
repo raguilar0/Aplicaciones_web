@@ -7,7 +7,6 @@
     <?= $this->Form->create($anthropometricsData) ?>
     <fieldset>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users,'label'=>'Usuario']);
             echo $this->Form->input('date', ['empty' => true,'label'=>'Fecha']);
             echo $this->Form->input('height',['label'=>'Talla']);
             echo $this->Form->input('weight',['label'=>'Peso']);

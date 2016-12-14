@@ -1,5 +1,5 @@
 <div class="well">
-  <?php if($this->request->session()->read('Auth.User.role') == 'admin' || $this->request->session()->read('Auth.User.id') == $anthropometricsData->user->id ){ ?>
+  <?php if($this->request->session()->read('Auth.User.role') == 'admin' || $this->request->session()->read('Auth.User.id') == $appointment->user->id ){ ?>
     <h3><?= $appointment->has('user') ? $this->Html->link($appointment->user->name.' '.$appointment->user->last_name_1.' '.$appointment->user->last_name_2, ['controller' => 'Users', 'action' => 'view', $appointment->user->id]) : '' ?></h3>
     <table class="vertical-table">
         <tr>

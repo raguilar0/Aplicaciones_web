@@ -1,6 +1,15 @@
+.input_alimentacion{
+  width: 80%;
+  text-align: center;
+}
+
+.input_explicacion{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .table-explicacion{
   width: 100%;
-  
 }
 .table-explicacion thead th{
   height: 50px;
@@ -35,14 +44,18 @@
 .table-alimentacion th{
   background-color: #f69924;
   height: 75px;
+  border-bottom: 1px solid white;
 }
+
 
 .tr-alimentacion-1{
   background-color: #F4B685;
+  border-bottom: 1px solid white;
 }
 
 .tr-alimentacion-2{
   background-color: #F79344;
+  border-bottom: 1px solid white;
 }
  .navbarl{
    border-radius: 0;

@@ -53,6 +53,11 @@ class UsersTable extends Table
                        'dependent' => true,
                        'cascadeCallbacks' => true,
         ]);
+
+        $this->hasMany('Plans', [
+                       'dependent' => true,
+                       'cascadeCallbacks' => true,
+        ]);
     }
 
     /**

@@ -53,15 +53,16 @@ class AnthropometricsDataController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id_user=null)
     {
         $anthropometricsData = $this->AnthropometricsData->newEntity();
         if ($this->request->is('post')) {
             $anthropometricsData = $this->AnthropometricsData->patchEntity($anthropometricsData, $this->request->data);
+            $anthropometricsData ['user_id'] = $id_user;
             if ($this->AnthropometricsData->save($anthropometricsData)) {
                 $this->Flash->success(__('Las medidas han sido guardadas.'));
 
-                return $this->redirect(['controller'=>'Plans','action' => 'add']);
+                return $this->redirect(['controller'=>'Plans','action' => 'add',$anthropometricsData['user_id']]);
             } else {
                 $this->Flash->error(__('Las medidas no pudieron ser guardadas. Intente nuevamente.'));
             }

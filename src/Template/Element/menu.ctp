@@ -29,17 +29,17 @@
                       <li><?=  $this->Html->link('Listar usuarios', ['controller' => 'Users', 'action' => 'index']) ?></li>
                       <li><?=  $this->Html->link('Nuevo usuario', ['controller' => 'Users', 'action' => 'add']) ?></li>
                     <?php } else { ?>
-                      <li><?=  $this->Html->link('Listar usuarios', ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id') ]) ?></li>
-                    <?php } ?>  
+                      <li><?=  $this->Html->link('Ver perfil', ['controller' => 'Users', 'action' => 'view', $this->request->session()->read('Auth.User.id') ]) ?></li>
+                    <?php } ?>
                 </ul>
                 <li  data-toggle="collapse" data-target="#citas" class="collapsed">
                   <a><i class="fa fa-calendar fa-lg"></i>Citas<span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="citas">
                     <li><?=  $this->Html->link('Listar citas', ['controller' => 'Appointments', 'action' => 'index']) ?></li>
-                    <?php if( $this->request->session()->read('Auth.User.role') == "admin"){?>
+
                     <li><?=  $this->Html->link('Nueva cita', ['controller' => 'Appointments', 'action' => 'add']) ?></li>
-                    <?php }?>
+                    
                 </ul>
             </ul>
      </div>

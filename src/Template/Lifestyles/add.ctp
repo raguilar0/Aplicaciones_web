@@ -7,7 +7,6 @@
     <?= $this->Form->create($lifestyle) ?>
     <fieldset>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users, 'empty' => true, 'label'=>'Usuario']);
             echo $this->Form->input('smoke',['label'=>'Fumador']);
             echo $this->Form->input('alcohol',['label'=>'Alcohol']);
             echo $this->Form->input('physical_activity',['label'=>'Actividad física']);

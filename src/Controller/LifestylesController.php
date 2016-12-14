@@ -53,15 +53,16 @@ class LifestylesController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id_user = null)
     {
         $lifestyle = $this->Lifestyles->newEntity();
         if ($this->request->is('post')) {
             $lifestyle = $this->Lifestyles->patchEntity($lifestyle, $this->request->data);
+            $lifestyle ['user_id'] = $id_user;
             if ($this->Lifestyles->save($lifestyle)) {
                 $this->Flash->success(__('El estilo de vida ha sido guardado.'));
 
-                return $this->redirect(['controller'=>'AnthropometricsData','action' => 'add']);
+                return $this->redirect(['controller'=>'AnthropometricsData','action' => 'add',$lifestyle['user_id']]);
             } else {
                 $this->Flash->error(__('El estilo de vida no pudo ser guardado. Intente nuevamente.'));
             }

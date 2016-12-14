@@ -78,11 +78,15 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('El usuario ha sido guardado.'));
 
-                return $this->redirect(['controller'=>'Backgrounds','action' => 'add']);
+                return $this->redirect(['controller'=>'Backgrounds','action' => 'add',$user['id']]);
             } else {
                 $this->Flash->error(__('El usuario no pudo ser guardado. Intente nuevamente.'));
             }
         }
+        $role = array('admin'=>'Administrador', 'user'=>'Cliente');
+        $this->set('role', $role);
+        $state = array('1'=>'Habilitado', '0'=>'Bloqueado');
+        $this->set('state', $state);
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }

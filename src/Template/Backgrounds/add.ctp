@@ -7,7 +7,7 @@
     <?= $this->Form->create($background) ?>
     <fieldset>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users, 'empty' => true, 'label'=>'Usuario']);
+          //  echo $this->Form->input('user_id', ['options' => $users, 'empty' => true, 'label'=>'Usuario']);
             echo $this->Form->input('disease_1',['label'=>'Enfermedades cardiacas']);
             echo $this->Form->input('disease_2',['label'=>'HTA']);
             echo $this->Form->input('disease_3',['label'=>'Diabetes']);

@@ -54,16 +54,17 @@ class PlansController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($id_user = null)
     {
         $plans = TableRegistry::get('Plans');
         $plan = $plans->newEntity($this->request->data(),['associated'=>['DairyProducts','Vegetables','Fruits','Flours','Meats','Fats','Explanations']]);
         if ($this->request->is('post')) {
             $plan = $this->Plans->patchEntity($plan, $this->request->data);
+            $plan['user_id'] = $id_user;
             if ($plans->save($plan)) {
                 $this->Flash->success(__('El plan ha sido guardado.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Users','action' => 'view',$plan['user_id']]);
             } else {
                 $this->Flash->error(__('El plan no pudo ser guardado. Intente nuevamente.'));
             }
@@ -90,7 +91,7 @@ class PlansController extends AppController
             if ($this->Plans->save($plan)) {
               $this->Flash->success(__('El plan ha sido guardado.'));
 
-              return $this->redirect(['action' => 'index']);
+              return $this->redirect(['action' => 'view',$plan['user_id']]);
           } else {
               $this->Flash->error(__('El plan no pudo ser guardado. Intente nuevamente.'));
             }
